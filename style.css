@@ -1,0 +1,44 @@
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* text-align: center; */
+    background-color: dodgerblue;
+}
+form{
+    text-align: left;
+    margin-left: 36vw;
+    margin-top: 1vh;
+    background-color: white;
+    height: 87vh;
+    width: 18vw;
+    padding: 8vh;
+    padding-top: 0%;
+    border-radius: 10px;
+}
+
+form.login{
+    height: 53vh;
+    margin-top: 3vh;
+}
+
+input{
+    width: 17vw;
+    height: 4vh;
+    font-size: 2vh;
+    margin-top: 0.5vh;
+    border: solid gray 1px;
+    padding: 5px;
+
+}
+.btn{
+    background-color: dodgerblue;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: dodgerblue;
+}
+.error{
+    color: rgb(255, 30, 30);
+}
