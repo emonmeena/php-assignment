@@ -52,7 +52,7 @@ if(isset($_POST['reg_user'])){
 if(isset($_POST['login_user'])){
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $password = mysqli_real_escape_string($db,  $_POST['password']);
-    $long_session = mysqli_real_escape_string($db, $_POST['long_session']);
+    // $long_session = mysqli_real_escape_string($db, $_POST['long_session']);
     $password = md5($password);
 
     $query = "SELECT email, username, password FROM users WHERE email = '$email' AND password = '$password'";
@@ -64,8 +64,7 @@ if(isset($_POST['login_user'])){
         header('location: index.php');
     }
     else{
-        array_push($error, $long_session);
-        // header('location: login.php');
+        array_push($error, "Email or Password incorrect");
     }
 }
 
