@@ -21,7 +21,7 @@
         <label for="password_2"><b>Confirm Password</b></label><br>
         <input type="password" name="password_2" id="password_2" required="true" placeholder="Re-enter Password" onkeyup="checkPassword(this.value)"><br><br>
         <label for="phone"><b>Phone</b></label><br>
-        <input type="number" name="phone" id="phone" required="true" placeholder="+91" value="<?php echo$phone ?>"><br><br>
+        <input type="number" name="phone" id="phone" required="true" placeholder="Your 10 digit phone no." value="<?php echo$phone ?>"><br><br>
         <label for="sex"><b>sex</b></label>
         <select name="sex" id="sex">
             <option value="male">Male</option>

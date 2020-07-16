@@ -43,8 +43,10 @@ if(isset($_POST['reg_user'])){
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
+        $_SESSION['phone'] = $phone;
+        $_SESSION['sex'] = $sex;
 
-        header('location:index.php');
+        header('location:profile.php');
     }
 
 }
@@ -55,13 +57,17 @@ if(isset($_POST['login_user'])){
     // $long_session = mysqli_real_escape_string($db, $_POST['long_session']);
     $password = md5($password);
 
-    $query = "SELECT email, username, password FROM users WHERE email = '$email' AND password = '$password'";
+    $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($db, $query);
     $user = mysqli_fetch_assoc($result);
     if($user){
         $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $email;
-        header('location: index.php');
+        $_SESSION['phone'] = $user['phone'];
+        $_SESSION['sex'] = $user['sex'];
+        $_SESSION['iscomplete'] = $user['iscomplete'];
+
+        header('location:index.php');
     }
     else{
         array_push($error, "Email or Password incorrect");

@@ -1,0 +1,118 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(236, 236, 236); 
+    border-radius: 5px;
+    visibility: hidden;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(151, 151, 151); 
+}
+
+body{
+    background-color: white;
+    display: flex;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.all-users-container{
+    border: solid rgb(196, 194, 194) 1px;
+    height: 97.5vh;
+    width: 29vw;
+}
+.all-users{
+    height: 90vh;
+    overflow-y: auto;
+}
+.chat-container{
+    border: solid rgb(180, 173, 173) 1px;
+    width: 70vw;
+}
+nav{
+    background-color: rgb(0, 53, 105);
+    color: white;
+    height: 7vh;
+    font-size: x-large;
+    text-align: center;
+    padding-top: 0.5vh;
+}
+.user{
+    height: 10vh;
+    background-color:rgb(236, 236, 236);
+    margin: 0.7vh;
+    display: flex;
+    padding-left: 0.5vw;
+    border-radius: 10px;
+}
+img{
+    margin-top: 0.5vh;
+    margin-right: 1vh;
+    height: 8vh;
+    border-radius: 50%;
+}
+b{
+    font-size: large;
+}
+p{
+    margin-top: 0.2vh;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.user:hover{
+    transform: scale(1.01);
+}
+.all-chats{
+    padding-left: 1vh;
+    margin: 1vh;
+    border: solid rgb(180, 173, 173) 1px;
+    height: 80vh;
+    overflow-y: auto;
+    background-image: url("res/background.png");
+}
+.mssg{
+    padding-left: 1vh;
+    margin: 1vh;
+    border: solid rgb(180, 173, 173) 1px;
+    height: 7vh;
+}
+.profile-pic{
+    height: 5vh;
+    margin-left: 1vw;
+}
+.chat-top{
+    display: flex;
+}
+.received{
+    background-color: rgb(148, 195, 241);
+    width: fit-content;
+    max-width: 40vw;
+    margin: 1vh;
+    padding: 1vh;
+    float: left;
+    clear: both;
+    border-radius: 5px;
+}
+.sent{
+    background-color: rgb(241, 241, 241);
+    width: fit-content;
+    max-width: 40vw;
+    margin: 1vh;
+    padding: 1vh;
+    float: right;
+    clear: both;
+    border-radius: 5px;
+}
+.all-chats:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+.message{
+    border-top: solid rgb(215, 223, 243) 1px;
+    margin-top: 0.5vh;
+}
+.settings{
+    margin-left: 55vw;
+    padding-top: 1vh;
+}
