@@ -9,6 +9,7 @@ $sex = $_SESSION['sex'];
 $phone = $_SESSION['phone'];
 $college = $_SESSION['college'];
 $branch_year = $_SESSION['branch_year'];
+$bio = $_SESSION['bio'];
 
 $Servername = "localhost";
 $Username = "root";
@@ -25,10 +26,13 @@ if(isset($_POST['update_profile'])){
     $college = mysqli_real_escape_string($db, $_POST['college']);
     $branch_year = mysqli_real_escape_string($db, $_POST['branch_year']);
     $phone = mysqli_real_escape_string($db, $_POST['phone']);
+    $bio = mysqli_real_escape_string($db, $_POST['bio']);
 
     echo "details: " . $college . " " . $branch_year;
 
-    $query = "UPDATE users SET email = '$email', college = '$college', branch_year = '$branch_year', phone = '$phone', iscomplete = 1 WHERE username = '$username' ";
+    $query = "UPDATE users SET email = '$email', college = '$college',
+    branch_year = '$branch_year', phone = '$phone', bio = '$bio', iscomplete = 1
+    WHERE username = '$username' ";
     mysqli_query($db, $query);
 
     $_SESSION['iscomplete'] = 1;
@@ -66,7 +70,7 @@ if(isset($_POST['update_profile'])){
             <label for="email"><b>Your email</b></label><br>
             <input type="email" name="email" id="" placeholder="email" value="<?php echo $email ?>" required="true">
             <label for="bio"><b>Bio</b></label><br>
-            <textarea name="bio" id="" cols="30" rows="10" placeholder="Hey there, I am using fakebook" onfocus="this.placeholder=''" onblur="this.placeholder='Hey there, I am using fakebook'"></textarea>
+            <textarea  required = "true" name="bio" id="" cols="30" rows="10" placeholder="Hey there, I am using fakebook" onfocus="this.placeholder=''" onblur="this.placeholder='Hey there, I am using fakebook'"><?php echo $bio ?></textarea>
             <p>Academic information - </p>
             <label for="college"><b>College</b></label>
             <input type="text" name="college" id="" required="true" value="<?php echo $college?>" placeholder="eg. IIT Roorkee" onfocus="this.placeholder=''" onblur="this.placeholder='eg. IIT Roorkee'">
