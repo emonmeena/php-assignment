@@ -4,9 +4,9 @@ session_start();
 if(!isset($_SESSION['username'])){
     header('location:login.php');
 }
-// if($_SESSION['iscomplete'] == 0) {
-//     header('location: profile.php');
-// }
+if($_SESSION['iscomplete'] == 0) {
+    header('location: profile.php');
+}
 
 if(isset($_GET['logout'])){
     session_destroy();
@@ -71,7 +71,7 @@ else $_SESSION['chat-with'] = "Select a user to chat";
     <nav class="chat-top">
         <img style="height: 5.3vh; margin: 0.8vh" src="res/default.png" alt="" srcset="">
         <p style="float: left; margin-left: 1vh"><?php echo $_SESSION['chat-with']; ?> </p>
-        <div class="settings">Settings</div>
+        <div class="settings"><a href="profile.php"><?php echo $_SESSION['username'] ?></a></div>
     </nav>
     <div class="all-chats">
         <?php if(isset($_GET['chatwith'])): ?>

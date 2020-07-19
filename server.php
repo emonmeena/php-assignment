@@ -45,6 +45,9 @@ if(isset($_POST['reg_user'])){
         $_SESSION['email'] = $email;
         $_SESSION['phone'] = $phone;
         $_SESSION['sex'] = $sex;
+        $_SESSION['college'] = "";
+        $_SESSION['branch_year'] = "";
+        $_SESSION['iscomplete'] = 0;
 
         header('location:profile.php');
     }
@@ -66,6 +69,8 @@ if(isset($_POST['login_user'])){
         $_SESSION['phone'] = $user['phone'];
         $_SESSION['sex'] = $user['sex'];
         $_SESSION['iscomplete'] = $user['iscomplete'];
+        $_SESSION['college'] = $user['college'];
+        $_SESSION['branch_year'] = $user['branch_year'];
 
         header('location:index.php');
     }
