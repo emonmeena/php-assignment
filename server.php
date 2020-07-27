@@ -73,6 +73,7 @@ if(isset($_POST['login_user'])){
         $_SESSION['college'] = $user['college'];
         $_SESSION['bio'] = $user['bio'];
         $_SESSION['branch_year'] = $user['branch_year'];
+        $_SESSION['profile_pic'] = $user['profile_pic'];
 
         header('location:index.php');
     }

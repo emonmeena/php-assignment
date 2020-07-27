@@ -36,6 +36,9 @@ if(isset($_POST['update_profile'])){
     mysqli_query($db, $query);
 
     $_SESSION['iscomplete'] = 1;
+    $_SESSION['college'] = $college;
+    $_SESSION['branch_year'] = $branch_year;
+    $_SESSION['bio'] = $bio;
     header('location: index.php');
 }
 
@@ -52,7 +55,7 @@ if(isset($_POST['update_profile'])){
 <body class="profile-page">
     <div class="c1">
         <div class="nav">
-            <a href="#profile"><div class="profile-tab tab">Profile</div></a>
+            <a href="#profile"><div class="profile-tab tab"> <strong><?php echo$username ?></strong> </div></a>
             <a href="index.php"><div class="home-tab tab">Home</div></a>
             <a href="#settings"><div class="settings-tab tab">Settings</div></a>
             <a href="index.php?logout=1"><div class="settings-tab tab tab2">Logout</div></a>
@@ -64,14 +67,14 @@ if(isset($_POST['update_profile'])){
         <?php endif ?>
         <div class="top">Your profile</div>
         <form action="profile.php" method="post">
-            <p>Personal details - </p>
+            <p>Personal details </p>
             Username - 
             <b><?php echo $username ?></b> <br><br>
             <label for="email"><b>Your email</b></label><br>
             <input type="email" name="email" id="" placeholder="email" value="<?php echo $email ?>" required="true">
             <label for="bio"><b>Bio</b></label><br>
-            <textarea  required = "true" name="bio" id="" cols="30" rows="10" placeholder="Hey there, I am using fakebook" onfocus="this.placeholder=''" onblur="this.placeholder='Hey there, I am using fakebook'"><?php echo $bio ?></textarea>
-            <p>Academic information - </p>
+            <textarea name="bio" id="" cols="30" rows="10" placeholder="Hey there, I am using fakebook" onfocus="this.placeholder=''" onblur="this.placeholder='Hey there, I am using fakebook'"><?php echo $bio ?></textarea>
+            <p>Academic information  </p>
             <label for="college"><b>College</b></label>
             <input type="text" name="college" id="" required="true" value="<?php echo $college?>" placeholder="eg. IIT Roorkee" onfocus="this.placeholder=''" onblur="this.placeholder='eg. IIT Roorkee'">
             <label for="branch_year"><b>Branch and Year</b></label>
@@ -81,21 +84,25 @@ if(isset($_POST['update_profile'])){
             <input type="text" name="phone" id="" required="true" value="<?php echo $phone ?>" required="true" onfocus="this.placeholder=''" onblur="this.placeholder='Your 10 digit phone number'">
             <input class="btn" name="update_profile" type="submit" value="Update profile">
         </form>
-        <form action="" method = "post">
-            <p id="settings">Change Password - </p>
+        <div class="f2">
+        <p id="settings">Settings  </p>
             <label for="current_password"><b>Current password</b></label><br>
-            <input type="password" name="current_password" id="">
+            <input type="password" name="current_password" id="" placeholder="Current password"><br>
             <label for="new_password"><b>New password</b></label><br>
-            <input type="password" name="new_password" id="">
+            <input type="password" name="new_password" id="" placeholder="New password"><br>
             <label for="new_password2"><b>Re-type password</b></label><br>
-            <input type="password" name="new_password2" id="">
-            <input class="btn" name="update_profile" type="submit" value="Change password">
-        </form>
+            <input type="password" name="new_password2" id="" placeholder="Confirm password"><br>
+            <button class="btn" onclick="f()">Change password</button>
+        </div>
     </div>
     <div class="c3">
         <div class="top"></div>
+        <form action="upload.php" method="post" enctype = "multipart/form-data">
         <p>Profile picture</p>
-        <img src="res/default.png" alt="" srcset="">
+        <img src="uploads/<?php echo $_SESSION['profile_pic'] ?>" alt="" srcset=""><br>
+        <input class="def-lay" type="file" name="profilePic" id="profilePic" accept="image/*">
+        <input class="btn" name="upload_picture" type="submit" value="Upload Image">
+        </form>
     </div>
 </body>
 </html>
